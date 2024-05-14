@@ -450,7 +450,19 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 282b1f60-71ea-4192-ae0c-4abeb8acfefe
+    m_ActionName: Rocket/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d12e881e-e981-42d4-902f-2a701b469710
+    m_ActionName: Rocket/Booster[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3a44061b-6f72-415c-b5f6-af6f03c47f8d
+    m_ActionName: Rocket/Energy
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: MouseKeyBoard
   m_DefaultActionMap: Rocket

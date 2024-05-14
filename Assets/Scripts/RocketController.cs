@@ -29,6 +29,5 @@ public class RocketController : MonoBehaviour
     private void OnBooster(InputValue value)
     {   
         OnBoostEvent?.Invoke(value.isPressed);
-        Debug.Log("누름");
     }
 }
