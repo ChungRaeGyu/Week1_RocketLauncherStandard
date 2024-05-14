@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EnergyDashboard : MonoBehaviour
@@ -8,6 +9,11 @@ public class EnergyDashboard : MonoBehaviour
     private void Start()
     {
         // TODO : energySystem에서 값이 바뀌면 fillBar.fillAmount가 바뀌도록 변경
+        energySystem.OnEnergyChanged += EnergyChanged;
     }
 
+    private void EnergyChanged(float obj)
+    {
+        fillBar.fillAmount-= obj;
+    }
 }

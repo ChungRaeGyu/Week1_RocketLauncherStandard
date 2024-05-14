@@ -8,12 +8,13 @@ public class RocketMovement : MonoBehaviour
     private bool _isBoosted;
     private readonly float SPEED = 5f;
     private readonly float ROTATIONSPEED = 0.01f;
-
+    private EnergySystem _energySystem;
     RocketController rocketController;
     private void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();
         rocketController = GetComponent<RocketController>();
+        _energySystem = GetComponent<EnergySystem>();
     }
     
     private void Start(){
@@ -21,6 +22,7 @@ public class RocketMovement : MonoBehaviour
         rocketController.OnBoostEvent += ApplyBoost;
     }
     private void FixedUpdate() {
+        if(playerDirection==Vector2.zero)return;
         Move(playerDirection);
     }
     public void ApplyMovement(Vector2 direction)
@@ -45,15 +47,17 @@ public class RocketMovement : MonoBehaviour
 
     private void Move(Vector2 direction)
     {   
+        float oil=0;
         // TODO : 움직임 적용
         if(_isBoosted){
             direction = direction * SPEED * 3;
-            
+            oil=3;
         }
-            
-
-        else
+        else{
             direction = direction * SPEED;
-        _rb2d.velocity = direction; 
+            oil = 1;
+        }
+        if(_energySystem.UseEnergy(oil))
+            _rb2d.velocity = direction;
     }
 }

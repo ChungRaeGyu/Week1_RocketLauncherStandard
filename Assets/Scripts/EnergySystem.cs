@@ -11,7 +11,9 @@ public class EnergySystem : MonoBehaviour
     {
         if (Fuel < amount) return false;
         // TODO : 에너지를 사용하는 로직을 적용
-
+        float num = amount/MaxFuel;
+        Fuel-=num;
+        OnEnergyChanged?.Invoke(num);
         return true;
     }
 }
