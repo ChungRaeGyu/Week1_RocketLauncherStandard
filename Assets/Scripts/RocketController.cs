@@ -19,8 +19,16 @@ public class RocketController : MonoBehaviour
 
     // TODO : OnMove 구현
     // private void OnMove...
+    /*
     private void OnMove(InputValue value){
         Vector2 direction = value.Get<Vector2>().normalized;
+        OnMoveEvent?.Invoke(direction);
+    }
+    */
+
+    public void OnMoveInput(InputAction.CallbackContext context)
+    {
+        Vector2 direction = context.ReadValue<Vector2>().normalized;
         OnMoveEvent?.Invoke(direction);
     }
 
